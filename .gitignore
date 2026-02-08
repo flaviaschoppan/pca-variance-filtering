@@ -1,0 +1,53 @@
+# =========================
+# Internal documentation (private)
+# =========================
+README_FULL.md
+README_FULL*.md
+docs/
+
+# =========================
+# Personal / notes
+# =========================
+notes.md
+
+# =========================
+# Pipeline implementation (private)
+# =========================
+pipeline/
+run_pipeline.py
+
+# =========================
+# Raw & private data
+# =========================
+data/raw/
+data/metadata/
+
+# =========================
+# Python cache / bytecode
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+build/
+dist/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# IDE / Editor files
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
