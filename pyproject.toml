@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,3 +7,9 @@ name = "gene-expression-feature-reduced-pca"
 version = "0.1.0"
 description = "Methodological evaluation of variance-based feature filtering in PCA for gene expression data"
 requires-python = ">=3.10"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
