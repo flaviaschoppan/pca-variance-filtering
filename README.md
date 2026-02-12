@@ -1,51 +1,61 @@
-# PCA Variance Filtering
+# Gene Expression Feature-Reduced PCA
 
-## Methodological evaluation of variance-based feature filtering effects on PCA structure in high-dimensional gene expression data
+#### Methodological evaluation of variance-based feature filtering in high-dimensional RNA-seq data
 
 ---
 
 ## Overview
 
-This repository presents a **method-focused analysis** evaluating how variance-based feature filtering reshapes the behavior of Principal Component Analysis (PCA) in high-dimensional gene expression datasets.
+This repository presents a **method-focused evaluation** of how variance-based gene filtering influences the behavior and interpretability of Principal Component Analysis (PCA) in high-dimensional RNA-seq datasets.
 
-The objective is **not biological discovery**, but to examine how upstream preprocessing decisions influence:
+The objective is **not biological discovery**, but to examine how upstream preprocessing decisions reshape:
 
 - variance concentration across principal components,
-- cumulative variance efficiency,
+- cumulative explained variance efficiency,
 - PCA geometry in sample space,
-- and gene-level contributions to dominant axes.
+- and gene-level contributions to principal axes.
 
-The project is designed to reflect analytical reasoning commonly required in **translational research and industry settings**, where preprocessing choices critically shape downstream interpretations.
+The project reflects analytical reasoning commonly required in translational research and industry environments, where preprocessing choices directly condition downstream interpretation.
+
+---
+
+## What This Repository Demonstrates
+
+This repository demonstrates:
+
+- how preprocessing decisions alter unsupervised multivariate analyses,
+- how to design controlled methodological comparisons,
+- how to reason about PCA behavior beyond default or black-box usage.
+
+The emphasis is on **analytical judgment, experimental control, and interpretability**, rather than on optimized models or task-specific performance.
 
 ---
 
 ## Study Design
 
-Two controlled PCA scenarios were evaluated:
+Two controlled PCA scenarios are evaluated:
 
-- **Scenario A:** No feature filtering  
-- **Scenario B:** Variance-based gene filtering  
+- **Scenario A:** PCA without feature filtering  
+- **Scenario B:** PCA after variance-based gene filtering  
 
-All comparisons isolate the effect of feature reduction on PCA behavior.  
-No supervised labels, classification tasks, or predictive objectives are involved.
+All analyses isolate the effect of feature reduction on PCA behavior.  
+No supervised labels, prediction targets, or optimization criteria are involved.
 
 ---
 
 ## Data
 
-- **Data type:** Gene expression count data (RNA-seq)
-- **Source:** Public Gene Expression Omnibus (GEO)
-- **Dataset:** Tumor-Educated Platelet (TEP) RNA-seq cohort
+- **Data type:** RNA-seq gene expression counts  
+- **Source:** Public Gene Expression Omnibus (GEO) dataset  
+- **Dataset:** Tumor-Educated Platelet (TEP) RNA-seq  
 
-The dataset comprises a large number of biologically independent samples and heterogeneous conditions, making it suitable for stress-testing PCA behavior under variance-based feature reduction.
+The dataset includes a large number of samples and heterogeneous conditions, making it suitable for stress-testing PCA behavior under feature reduction.
 
-Raw data are publicly available from GEO and were **not redistributed** in this repository.
+Raw data are publicly available from GEO and are not redistributed here.
 
 ---
 
-## Processing Summary
-
-Conceptual analytical flow:
+## Analytical Flow (Conceptual)
 
 Raw counts  
 → CPM normalization  
@@ -62,42 +72,40 @@ This structure emphasizes transparency of analytical decisions while remaining i
 ## Key Outputs
 
 ### Variance Structure
-Scree plots show that variance-based filtering concentrates variance into earlier components, reducing dispersion across higher principal components.
+Scree plots show that variance-based filtering concentrates variance into earlier components, reducing dispersion across higher PCs.
 
 ### Cumulative Explained Variance
-Comparative analysis demonstrates that variance-filtered data reach equivalent variance thresholds using fewer components, indicating improved dimensional efficiency.
+Filtered data reach equivalent variance thresholds using fewer components, indicating improved dimensional efficiency.
 
 ### PCA Geometry
-PCA scatter plots (PC1 vs PC2) show that global sample-space geometry is largely preserved after filtering, with subtle tightening but no artificial separation introduced by preprocessing.
+PC1–PC2 projections show preservation of global sample-space geometry after filtering, with subtle tightening but no artificial separation.
 
 ### Metadata Projection
-When sample metadata are projected onto PCA space, major components do not trivially separate conditions. However, non-random biological structure is observable, consistent with PCA capturing real but unsupervised variation.
+Overlaying sample metadata reveals non-random biological structure without trivial condition separation, consistent with unsupervised variance capture.
 
-Representative figures included in this repository:
+Representative figures included:
 - `pca_pc1_pc2_by_condition.png`
 - `cumulative_variance_comparison.png`
 - `filtered/scree_plot.png`
 
 ---
 
-## Interpretation Notes
+## Interpretation Boundaries
 
-- PCA loadings do **not** represent differential expression.
+- PCA loadings are **not** differential expression.
 - No biomarkers or predictive claims are made.
 - All conclusions are **methodological**, not biological.
-
-The focus is on understanding how preprocessing decisions shape exploratory multivariate analysis.
 
 ---
 
 ## Scope
 
-This repository is intended for:
+**Intended for:**
 - methodological evaluation,
 - preprocessing strategy assessment,
-- exploratory PCA behavior analysis in high-dimensional data.
+- exploratory PCA behavior analysis.
 
-It is **not intended** for:
+**Out of scope:**
 - differential expression analysis,
 - supervised learning or clustering,
 - biological interpretation of gene sets,
@@ -105,15 +113,13 @@ It is **not intended** for:
 
 ---
 
-## Implementation Notes
+## Implementation and Method Exposure
 
-This repository focuses on **analytical results and methodological reasoning**.
+This repository documents **analytical outcomes and methodological framing**.
 
-The implementation code used to generate these outputs is maintained separately and is **not distributed** as part of this repository.
+Detailed implementation logic, parameterization heuristics, and upstream decision rules are intentionally not distributed. This mirrors applied research and industry practice, where methodological insight resides in analytical reasoning rather than in executable scripts alone.
 
-This design reflects common industry practice, where analytical approaches are demonstrated through results and documented decision-making, while implementation details are adapted to specific data, infrastructure, and regulatory contexts.
-
-**Internal project ID:** 1000
+Access to deeper methodological reasoning or adaptation to new datasets requires direct collaboration.
 
 ---
 
